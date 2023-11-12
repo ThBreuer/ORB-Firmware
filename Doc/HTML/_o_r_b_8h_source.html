@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ORB -  Firmware, Application Programming Interface (API): ORB.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ORB -  Firmware, Application Programming Interface (API)
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.9.3 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ffd1f789ec7bd0a45fc6ad92579c5070.html">Project</a></li><li class="navelem"><a class="el" href="dir_5c2ad948be4074e30ba675538cfd964e.html">Src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">ORB.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//*******************************************************************</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"></span><span class="comment">//*******************************************************************</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef _ORB_H</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define _ORB_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//*******************************************************************</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;stdarg.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;inttypes.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//*******************************************************************</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span><span class="keyword">typedef</span> uint8_t        BYTE;  </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">typedef</span> uint16_t       WORD;  </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>  DWORD; </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">//*******************************************************************</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_o_r_b.html">   33</a></span><span class="comment"></span><span class="keyword">class </span><a class="code hl_class" href="class_o_r_b.html">ORB</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">//***************************************************************</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span>    <span class="keyword">class </span>Motor</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">float</span> pwr;    </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordtype">float</span> speed;  </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">int</span>   pos;    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    };</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">//***************************************************************</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"></span>    <span class="keyword">class </span>Sensor</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">//-----------------------------------------------------------</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="comment">// TDOD parameter beschreiben</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        DWORD value[2];</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        BYTE  type;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        BYTE  option;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        BYTE  lenExp;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    };</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85c">   70</a></span><span class="comment"></span>    <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85caead5d6b4f51f3ad13c1075e0bf57baff">   72</a></span>      <a class="code hl_enumvalue" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85caead5d6b4f51f3ad13c1075e0bf57baff">POWER_MODE</a>  = 0, </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85cac6fc05a3cfd46fd775ddd380adf6a83b">   73</a></span>      <a class="code hl_enumvalue" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85cac6fc05a3cfd46fd775ddd380adf6a83b">BRAKE_MODE</a>  = 1, </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85ca6ea22b543c993ac25a2be54eb05c81d2">   74</a></span>      <a class="code hl_enumvalue" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85ca6ea22b543c993ac25a2be54eb05c81d2">SPEED_MODE</a>  = 2, </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      <a class="code hl_enumvalue" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85caa0bf15529948d388978a6469f33dfe59">MOVETO_MODE</a> = 3  </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85caa0bf15529948d388978a6469f33dfe59">   80</a></span>    } <a class="code hl_enumeration" href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85c">MotorMode</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435">   85</a></span><span class="comment"></span>    <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a49060614b990fe7d76fef9cd92990ce6">   87</a></span>      <a class="code hl_enumvalue" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a49060614b990fe7d76fef9cd92990ce6">ANALOG</a> = 0, </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435ab81270ba54ae4586a18415e5a579633d">   88</a></span>      <a class="code hl_enumvalue" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435ab81270ba54ae4586a18415e5a579633d">UART</a>   = 1, </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a999bae3da733e2c2015a4585271b0187">   89</a></span>      <a class="code hl_enumvalue" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a999bae3da733e2c2015a4585271b0187">I2C</a>    = 2, </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435ac18e0fdb830eeb3a7f657a75000744db">   90</a></span>      <a class="code hl_enumvalue" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435ac18e0fdb830eeb3a7f657a75000744db">TOF</a>    = 3, </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      <a class="code hl_enumvalue" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a6ecfbe49e5633ee8720987991a223fdc">TOUCH</a>  = 4  </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a6ecfbe49e5633ee8720987991a223fdc">   92</a></span>    } <a class="code hl_enumeration" href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435">SensorType</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a4e824e0e51529e349b8177786bc7a056">   97</a></span><span class="comment"></span>    <a class="code hl_function" href="class_o_r_b.html#a4e824e0e51529e349b8177786bc7a056">ORB</a>( <span class="keywordtype">void</span> )</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_o_r_b.html#adafe9ce18f7a643e1ccc115b761e52b2">  122</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#adafe9ce18f7a643e1ccc115b761e52b2">configMotor</a>( BYTE <span class="keywordtype">id</span>,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                              WORD ticsPerRotation,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                              BYTE acc,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                              BYTE Kp,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                              BYTE Ki ) = 0;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a6180cd54aadc27a6e2f5ad6fbb224ada">  141</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#a6180cd54aadc27a6e2f5ad6fbb224ada">setMotor</a> ( BYTE  <span class="keywordtype">id</span>,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                            BYTE  mode,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                            <span class="keywordtype">short</span> speed,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                            <span class="keywordtype">int</span>   pos ) = 0;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a11d9cd293ce2ff6e60b896ebbe2d6d0e">  151</a></span><span class="comment"></span>    <span class="keyword">virtual</span> ORB::Motor <a class="code hl_function" href="class_o_r_b.html#a11d9cd293ce2ff6e60b896ebbe2d6d0e">getMotor</a>( BYTE <span class="keywordtype">id</span> ) = 0;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a5ef02e657a499892a91642d6d2529656">  168</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#a5ef02e657a499892a91642d6d2529656">setModelServo</a>( BYTE <span class="keywordtype">id</span>,</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                                BYTE speed,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                                BYTE angle ) = 0;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a6580f418c1747535aa971412efe4c038">  184</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#a6580f418c1747535aa971412efe4c038">configSensor</a>( BYTE <span class="keywordtype">id</span>,</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                               BYTE type,</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                               BYTE mode,</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                               WORD option ) = 0;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="class_o_r_b.html#aab37749112f14c6e0032e9bf14f2718c">  196</a></span><span class="comment"></span>    <span class="keyword">virtual</span> ORB::Sensor <a class="code hl_function" href="class_o_r_b.html#aab37749112f14c6e0032e9bf14f2718c">getSensor</a>( BYTE <span class="keywordtype">id</span> ) = 0;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a6d19da1b04d370daee66a288dbc94019">  210</a></span><span class="comment"></span>    <span class="keyword">virtual</span> WORD <a class="code hl_function" href="class_o_r_b.html#a6d19da1b04d370daee66a288dbc94019">getSensorValueExt</a>( BYTE <span class="keywordtype">id</span>, BYTE ch ) = 0;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a6c23caadc213c24d1cf163c987d431d9">  217</a></span><span class="comment"></span>    <span class="keyword">virtual</span> BYTE <a class="code hl_function" href="class_o_r_b.html#a6c23caadc213c24d1cf163c987d431d9">getSensorDigital</a>( BYTE <span class="keywordtype">id</span> ) = 0;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="class_o_r_b.html#af4bd0efce79b04224b89019492282bb9">  231</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#af4bd0efce79b04224b89019492282bb9">setMonitorText</a>( BYTE        line,</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                                 <span class="keyword">const</span> <span class="keywordtype">char</span> *format,</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                                 va_list     va ) = 0;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="class_o_r_b.html#ae264443b61b2ee175ac7268e55bed88e">  239</a></span><span class="comment"></span>    <span class="keyword">virtual</span> BYTE <a class="code hl_function" href="class_o_r_b.html#ae264443b61b2ee175ac7268e55bed88e">getMonitorKey</a>( <span class="keywordtype">void</span> ) = 0;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a1ec6dd24c4c0467b1870d072c0acb19e">  251</a></span><span class="comment"></span>    <span class="keyword">virtual</span> DWORD <a class="code hl_function" href="class_o_r_b.html#a1ec6dd24c4c0467b1870d072c0acb19e">getTime</a>( <span class="keywordtype">void</span> ) = 0;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a8017005aeb8a215bf9ba636a4624e33e">  257</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#a8017005aeb8a215bf9ba636a4624e33e">wait</a>( DWORD time ) = 0;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="class_o_r_b.html#af035ca9eee01321c311374a7e5b2dd9d">  271</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#af035ca9eee01321c311374a7e5b2dd9d">clearMemory</a>( <span class="keywordtype">void</span> ) = 0;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a210edaf28ffda1d422eea502d77d6d77">  282</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#a210edaf28ffda1d422eea502d77d6d77">setMemory</a>( DWORD  addr,</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                            BYTE  *data,</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                            DWORD  size ) = 0;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno"><a class="line" href="class_o_r_b.html#abd7ec551d439d4a92269277a087219cd">  295</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_r_b.html#abd7ec551d439d4a92269277a087219cd">getMemory</a>( DWORD  addr,</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                            BYTE  *data,</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                            DWORD  size ) = 0;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment"></span>    <span class="comment">//---------------------------------------------------------------</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="class_o_r_b.html#a01dd004380f0c074d70436b010b09bd2">  309</a></span><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_o_r_b.html#a01dd004380f0c074d70436b010b09bd2">getVcc</a>( <span class="keywordtype">void</span> ) = 0;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    <span class="keywordtype">unsigned</span> *prog;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>};</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="preprocessor">#endif </span><span class="comment">// _ORB_H</span></div>
+<div class="ttc" id="aclass_o_r_b_html"><div class="ttname"><a href="class_o_r_b.html">ORB</a></div><div class="ttdoc">ORB-API.</div><div class="ttdef"><b>Definition:</b> ORB.h:34</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a01dd004380f0c074d70436b010b09bd2"><div class="ttname"><a href="class_o_r_b.html#a01dd004380f0c074d70436b010b09bd2">ORB::getVcc</a></div><div class="ttdeci">virtual float getVcc(void)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a11d9cd293ce2ff6e60b896ebbe2d6d0e"><div class="ttname"><a href="class_o_r_b.html#a11d9cd293ce2ff6e60b896ebbe2d6d0e">ORB::getMotor</a></div><div class="ttdeci">virtual ORB::Motor getMotor(BYTE id)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a1ec6dd24c4c0467b1870d072c0acb19e"><div class="ttname"><a href="class_o_r_b.html#a1ec6dd24c4c0467b1870d072c0acb19e">ORB::getTime</a></div><div class="ttdeci">virtual DWORD getTime(void)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a210edaf28ffda1d422eea502d77d6d77"><div class="ttname"><a href="class_o_r_b.html#a210edaf28ffda1d422eea502d77d6d77">ORB::setMemory</a></div><div class="ttdeci">virtual void setMemory(DWORD addr, BYTE *data, DWORD size)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a213c434cb928c4ca22513e2302632435"><div class="ttname"><a href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435">ORB::SensorType</a></div><div class="ttdeci">SensorType</div><div class="ttdef"><b>Definition:</b> ORB.h:86</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a213c434cb928c4ca22513e2302632435a49060614b990fe7d76fef9cd92990ce6"><div class="ttname"><a href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a49060614b990fe7d76fef9cd92990ce6">ORB::ANALOG</a></div><div class="ttdeci">@ ANALOG</div><div class="ttdoc">Analog-Sensor.</div><div class="ttdef"><b>Definition:</b> ORB.h:87</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a213c434cb928c4ca22513e2302632435a6ecfbe49e5633ee8720987991a223fdc"><div class="ttname"><a href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a6ecfbe49e5633ee8720987991a223fdc">ORB::TOUCH</a></div><div class="ttdeci">@ TOUCH</div><div class="ttdoc">NXT/EV3-Touch-Sensor.</div><div class="ttdef"><b>Definition:</b> ORB.h:91</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a213c434cb928c4ca22513e2302632435a999bae3da733e2c2015a4585271b0187"><div class="ttname"><a href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435a999bae3da733e2c2015a4585271b0187">ORB::I2C</a></div><div class="ttdeci">@ I2C</div><div class="ttdoc">I2C-Sensor.</div><div class="ttdef"><b>Definition:</b> ORB.h:89</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a213c434cb928c4ca22513e2302632435ab81270ba54ae4586a18415e5a579633d"><div class="ttname"><a href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435ab81270ba54ae4586a18415e5a579633d">ORB::UART</a></div><div class="ttdeci">@ UART</div><div class="ttdoc">EV3-UART-Sensor.</div><div class="ttdef"><b>Definition:</b> ORB.h:88</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a213c434cb928c4ca22513e2302632435ac18e0fdb830eeb3a7f657a75000744db"><div class="ttname"><a href="class_o_r_b.html#a213c434cb928c4ca22513e2302632435ac18e0fdb830eeb3a7f657a75000744db">ORB::TOF</a></div><div class="ttdeci">@ TOF</div><div class="ttdoc">Ultraschall-Sensor (Time Of Flight)</div><div class="ttdef"><b>Definition:</b> ORB.h:90</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a4e824e0e51529e349b8177786bc7a056"><div class="ttname"><a href="class_o_r_b.html#a4e824e0e51529e349b8177786bc7a056">ORB::ORB</a></div><div class="ttdeci">ORB(void)</div><div class="ttdef"><b>Definition:</b> ORB.h:97</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a5ef02e657a499892a91642d6d2529656"><div class="ttname"><a href="class_o_r_b.html#a5ef02e657a499892a91642d6d2529656">ORB::setModelServo</a></div><div class="ttdeci">virtual void setModelServo(BYTE id, BYTE speed, BYTE angle)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a6180cd54aadc27a6e2f5ad6fbb224ada"><div class="ttname"><a href="class_o_r_b.html#a6180cd54aadc27a6e2f5ad6fbb224ada">ORB::setMotor</a></div><div class="ttdeci">virtual void setMotor(BYTE id, BYTE mode, short speed, int pos)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a6580f418c1747535aa971412efe4c038"><div class="ttname"><a href="class_o_r_b.html#a6580f418c1747535aa971412efe4c038">ORB::configSensor</a></div><div class="ttdeci">virtual void configSensor(BYTE id, BYTE type, BYTE mode, WORD option)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a6c23caadc213c24d1cf163c987d431d9"><div class="ttname"><a href="class_o_r_b.html#a6c23caadc213c24d1cf163c987d431d9">ORB::getSensorDigital</a></div><div class="ttdeci">virtual BYTE getSensorDigital(BYTE id)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a6d19da1b04d370daee66a288dbc94019"><div class="ttname"><a href="class_o_r_b.html#a6d19da1b04d370daee66a288dbc94019">ORB::getSensorValueExt</a></div><div class="ttdeci">virtual WORD getSensorValueExt(BYTE id, BYTE ch)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_a8017005aeb8a215bf9ba636a4624e33e"><div class="ttname"><a href="class_o_r_b.html#a8017005aeb8a215bf9ba636a4624e33e">ORB::wait</a></div><div class="ttdeci">virtual void wait(DWORD time)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_aab37749112f14c6e0032e9bf14f2718c"><div class="ttname"><a href="class_o_r_b.html#aab37749112f14c6e0032e9bf14f2718c">ORB::getSensor</a></div><div class="ttdeci">virtual ORB::Sensor getSensor(BYTE id)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_abd7ec551d439d4a92269277a087219cd"><div class="ttname"><a href="class_o_r_b.html#abd7ec551d439d4a92269277a087219cd">ORB::getMemory</a></div><div class="ttdeci">virtual void getMemory(DWORD addr, BYTE *data, DWORD size)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_acf114e04f9a4c659c80ce0106398f85c"><div class="ttname"><a href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85c">ORB::MotorMode</a></div><div class="ttdeci">MotorMode</div><div class="ttdef"><b>Definition:</b> ORB.h:71</div></div>
+<div class="ttc" id="aclass_o_r_b_html_acf114e04f9a4c659c80ce0106398f85ca6ea22b543c993ac25a2be54eb05c81d2"><div class="ttname"><a href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85ca6ea22b543c993ac25a2be54eb05c81d2">ORB::SPEED_MODE</a></div><div class="ttdeci">@ SPEED_MODE</div><div class="ttdoc">Drehzahlregelung.</div><div class="ttdef"><b>Definition:</b> ORB.h:74</div></div>
+<div class="ttc" id="aclass_o_r_b_html_acf114e04f9a4c659c80ce0106398f85caa0bf15529948d388978a6469f33dfe59"><div class="ttname"><a href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85caa0bf15529948d388978a6469f33dfe59">ORB::MOVETO_MODE</a></div><div class="ttdeci">@ MOVETO_MODE</div><div class="ttdef"><b>Definition:</b> ORB.h:75</div></div>
+<div class="ttc" id="aclass_o_r_b_html_acf114e04f9a4c659c80ce0106398f85cac6fc05a3cfd46fd775ddd380adf6a83b"><div class="ttname"><a href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85cac6fc05a3cfd46fd775ddd380adf6a83b">ORB::BRAKE_MODE</a></div><div class="ttdeci">@ BRAKE_MODE</div><div class="ttdoc">Kurzschlussbremse.</div><div class="ttdef"><b>Definition:</b> ORB.h:73</div></div>
+<div class="ttc" id="aclass_o_r_b_html_acf114e04f9a4c659c80ce0106398f85caead5d6b4f51f3ad13c1075e0bf57baff"><div class="ttname"><a href="class_o_r_b.html#acf114e04f9a4c659c80ce0106398f85caead5d6b4f51f3ad13c1075e0bf57baff">ORB::POWER_MODE</a></div><div class="ttdeci">@ POWER_MODE</div><div class="ttdoc">Motor wird mit konstanter Spannung betrieben, keine Regelung.</div><div class="ttdef"><b>Definition:</b> ORB.h:72</div></div>
+<div class="ttc" id="aclass_o_r_b_html_adafe9ce18f7a643e1ccc115b761e52b2"><div class="ttname"><a href="class_o_r_b.html#adafe9ce18f7a643e1ccc115b761e52b2">ORB::configMotor</a></div><div class="ttdeci">virtual void configMotor(BYTE id, WORD ticsPerRotation, BYTE acc, BYTE Kp, BYTE Ki)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_ae264443b61b2ee175ac7268e55bed88e"><div class="ttname"><a href="class_o_r_b.html#ae264443b61b2ee175ac7268e55bed88e">ORB::getMonitorKey</a></div><div class="ttdeci">virtual BYTE getMonitorKey(void)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_af035ca9eee01321c311374a7e5b2dd9d"><div class="ttname"><a href="class_o_r_b.html#af035ca9eee01321c311374a7e5b2dd9d">ORB::clearMemory</a></div><div class="ttdeci">virtual void clearMemory(void)=0</div></div>
+<div class="ttc" id="aclass_o_r_b_html_af4bd0efce79b04224b89019492282bb9"><div class="ttname"><a href="class_o_r_b.html#af4bd0efce79b04224b89019492282bb9">ORB::setMonitorText</a></div><div class="ttdeci">virtual void setMonitorText(BYTE line, const char *format, va_list va)=0</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt von&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3
+</small></address>
+</body>
+</html>
