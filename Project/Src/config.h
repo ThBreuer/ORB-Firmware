@@ -18,6 +18,10 @@
 
   #include "config_Board_00_30.h"
 
+#elif (BOARD_MAIN == 1 && BOARD_SUB == 0)
+
+  #include "config_Board_01_00.h"
+
 #else
 
   #error "Board hardware version not defined"

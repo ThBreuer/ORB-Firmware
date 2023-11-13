@@ -129,13 +129,74 @@
 					<Variable name="HW_SUB" value="30" />
 				</Environment>
 			</Target>
+			<Target title="Board-01.00">
+				<Option output=".\..\Bin\orb-hw${HW_MAIN}${HW_SUB}.elf" />
+				<Option object_output=".\..\.Build\${HW_MAIN}${HW_SUB}" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc_eb" />
+				<Device>
+					<Add option="$device=cortex-m4" />
+					<Add option="$fpu=fpv4-sp-d16" />
+					<Add option="$lscript=./stm32f407ie_flash.ld" />
+					<Add option="$stack=0x0800" />
+					<Add option="$heap=0x0800" />
+				</Device>
+				<Compiler>
+					<Add option="-mfloat-abi=hard" />
+					<Add option="-Wall" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+					<Add option="-O0" />
+					<Add option="-g3" />
+					<Add symbol="OSCSRC=HSI" />
+					<Add symbol="OSCFREQ=8000" />
+					<Add symbol="DEBUG_TARGET" />
+					<Add symbol="STM32F407xx" />
+					<Add symbol="MCU_STM32F407" />
+					<Add symbol="ARM_MATH_CM4" />
+					<Add symbol="STM32F407" />
+					<Add symbol="STM32F4xx" />
+					<Add symbol="PROJECT_CPP" />
+					<Add symbol="_PROJECT_CPP" />
+					<Add symbol="COMPILER_GCC" />
+					<Add symbol="ORB_FIRMWARE" />
+				</Compiler>
+				<Cpp>
+					<Add option="-mfloat-abi=hard" />
+					<Add option="-Wall" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+					<Add option="-O0" />
+					<Add option="-g2" />
+				</Cpp>
+				<Assembler>
+					<Add option="-Wa,--gdwarf-2" />
+				</Assembler>
+				<Linker>
+					<Add option="-eb_lib=n" />
+					<Add option="-lstdc++" />
+					<Add option="-eb_start_files" />
+					<Add option="-Wl,--gc-sections" />
+					<Add option="-lm" />
+				</Linker>
+				<ExtraCommands>
+					<Add after=".\..\Tools\Hex2Dfu\hex2dfu.exe -i .\..\Bin\orb-hw${HW_MAIN}${HW_SUB}.hex -o .\..\Bin\orb-hw${HW_MAIN}${HW_SUB}-fw${SW_MAIN}${SW_SUB}.dfu" />
+					<Mode before="0" />
+					<Mode after="2" />
+				</ExtraCommands>
+				<Environment>
+					<Variable name="HW_MAIN" value="01" />
+					<Variable name="HW_SUB" value="00" />
+				</Environment>
+			</Target>
 			<Environment>
-				<Variable name="SW_MAIN" value="00" />
-				<Variable name="SW_SUB" value="95" />
+				<Variable name="SW_MAIN" value="01" />
+				<Variable name="SW_SUB" value="00" />
 			</Environment>
 		</Build>
 		<VirtualTargets>
-			<Add alias="All" targets="Board-00.22;Board-00.30;" />
+			<Add alias="All" targets="Board-00.22;Board-00.30;Board-01.00;" />
 		</VirtualTargets>
 		<Compiler>
 			<Add option="-fdata-sections" />
@@ -288,11 +349,14 @@
 		<Extensions>
 			<code_completion />
 			<debugger>
+				<target_debugging_settings target="Board-00.22">
+					<debug_interface description="STM32F407.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="1000" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="true" ip_address="localhost" ip_port="2331" path="c:\Bin\SEGGER\JLink" executable="JLinkGDBServer.exe" start_server="true" arguments="" flash_verify="true" flash_run="true" />
+				</target_debugging_settings>
 				<target_debugging_settings target="Board-00.30">
 					<debug_interface description="STM32F407.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="1000" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="true" ip_address="localhost" ip_port="2331" path="c:\Bin\SEGGER\JLink" executable="JLinkGDBServer.exe" start_server="true" arguments="-select USB -device STM32F407VE  -if SWD -speed 1000 -noir" flash_verify="true" flash_run="true" />
 				</target_debugging_settings>
-				<target_debugging_settings target="Board-00.22">
-					<debug_interface description="STM32F407.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="1000" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="true" ip_address="localhost" ip_port="2331" path="c:\Bin\SEGGER\JLink" executable="JLinkGDBServer.exe" start_server="true" arguments="" flash_verify="true" flash_run="true" />
+				<target_debugging_settings target="Board-01.00">
+					<debug_interface description="STM32F407.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="1000" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="true" ip_address="localhost" ip_port="2331" path="c:\Bin\SEGGER\JLink" executable="JLinkGDBServer.exe" start_server="true" arguments="-select USB -device STM32F407VE  -if SWD -speed 1000 -noir" flash_verify="true" flash_run="true" />
 				</target_debugging_settings>
 			</debugger>
 			<envvars />

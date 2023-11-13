@@ -74,6 +74,10 @@ void AppTask::update( )
 
  unsigned *addr = (unsigned*)0x8020000;
 
+#elif (BOARD_MAIN == 01 && BOARD_SUB == 00)
+
+ unsigned *addr = (unsigned*)0x8020000;
+
 #else
 
   #error "Board hardware version not defined"
