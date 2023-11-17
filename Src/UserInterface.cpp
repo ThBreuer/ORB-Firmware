@@ -12,8 +12,10 @@
 //*******************************************************************
 extern Digital      ledUsr1;
 extern Digital      ledUsr2;
-extern Digital      btnUsr1;
-extern Digital      btnUsr2;
+//extern Digital      btnUsr1;
+//extern Digital      btnUsr2;
+extern DigitalButton btn;
+extern DigitalButton btnAlt;
 
 extern DigitalIndicator pwrIndicator;
 
@@ -23,33 +25,32 @@ extern DigitalIndicator pwrIndicator;
 //
 //*******************************************************************
 //-------------------------------------------------------------------
-UserInterface::UserInterface( TaskManager &taskHandler,
-                              AppTask      &app,
+UserInterface::UserInterface( AppTask      &app,
                               Settings     &settings )
 
- : btnTimer( taskHandler, 20/*ms*/)
- , settings(settings)
+ : settings(settings)
  , app     ( app )
 
 {
-   //taskHandler.add( this );
 }
 
 //-------------------------------------------------------------------
 void UserInterface::update()
 {
-  if( btnTimer.timeout() )
+  DigitalButton::Action action1 = btn   .getAction();
+  DigitalButton::Action action2 = btnAlt.getAction();
+
+  switch( action1 == DigitalButton::NONE ? action2 : action1 )
   {
-    if( btnUsr1.getEvent() == Digital::ACTIVATED )
-    {
+    case DigitalButton::SHORT:
       if( app.isRunning() )  stopApp();
-      else                  startApp(0);
-    }
-    else if( btnUsr2.getEvent() == Digital::ACTIVATED )
-    {
+      else                   startApp(0);
+      break;
+
+    case DigitalButton::LONG:
       if( app.isRunning() )  stopApp();
-      else                  startApp(1);
-    }
+      else                   startApp(1);
+      break;
   }
 
   if( !app.isRunning() )
@@ -95,7 +96,7 @@ void UserInterface::setMonitorEvent( BYTE event )
 void UserInterface::setVcc( BYTE Vcc )
 {
   if     ( Vcc > settings.getVccLevelOK()  )  pwrIndicator.blink(1000, 90); //, 30);
-  else if( Vcc > settings.getVccLevelLow() )  pwrIndicator.blink(1000, 80); //, 50);
-  else                                        pwrIndicator.blink( 250, 30); //,100);
+  else if( Vcc > settings.getVccLevelLow() )  pwrIndicator.blink(1000, 50); //, 50);
+  else                                        pwrIndicator.blink( 200, 50); //,100);
 }
 //EOF

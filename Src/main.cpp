@@ -57,7 +57,7 @@ cISC_USBdevice   ipcUSB( usb, 0/*interfId*/);
 
 //*******************************************************************
 AppTask        app      ( rtos                                     );
-UserInterface  ui       ( taskManager, app,      settings          );
+UserInterface  ui       (              app,      settings          );
 Control        ctrl     ( taskManager, ui                          );
 Remote         remoteBT ( ipcBT,       ui, ctrl, settings, monitor );
 Remote         remoteUSB( ipcUSB,      ui, ctrl, settings, monitor );

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_project_file>
-	<EmBitzVersion release="2.50" revision="0" />
+	<EmBitzVersion release="2.60" revision="0" />
 	<FileVersion major="2" minor="0" />
 	<Project>
 		<Option title="main" />
@@ -191,8 +191,8 @@
 				</Environment>
 			</Target>
 			<Environment>
-				<Variable name="SW_MAIN" value="01" />
-				<Variable name="SW_SUB" value="00" />
+				<Variable name="SW_MAIN" value="00" />
+				<Variable name="SW_SUB" value="94" />
 			</Environment>
 		</Build>
 		<VirtualTargets>
@@ -242,118 +242,106 @@
 		<Linker>
 			<Add option="-eb_lib=n" />
 		</Linker>
-		<Unit filename="Src\AppTask.cpp">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Src\AppTask.h" />
-		<Unit filename="Src\Bluetooth\Bluetooth.h" />
-		<Unit filename="Src\Bluetooth\BT_RN41.h" />
-		<Unit filename="Src\Bluetooth\BT_RN4678.h" />
-		<Unit filename="Src\config.h" />
-		<Unit filename="Src\Control.cpp">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Src\Control.h" />
-		<Unit filename="Src\lib.cpp">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Src\lib.h" />
-		<Unit filename="Src\main.cpp">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Src\Monitor.cpp">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Src\Monitor.h" />
-		<Unit filename="Src\Motor.cpp">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Src\Motor.h" />
-		<Unit filename="Src\MotorTask.cpp">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Src\MotorTask.h" />
-		<Unit filename="Src\MovingAverage.h" />
 		<Unit filename="..\Common\Src\ORB.h" />
 		<Unit filename="..\Common\Src\ORBlocal.h" />
 		<Unit filename="..\Common\Src\Properties.h" />
-		<Unit filename="Src\Remote.cpp">
+		<Unit filename="..\Src\AppTask.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Remote.h" />
-		<Unit filename="Src\Sensor.cpp">
+		<Unit filename="..\Src\AppTask.h" />
+		<Unit filename="..\Src\Bluetooth\Bluetooth.h" />
+		<Unit filename="..\Src\Bluetooth\BT_RN41.h" />
+		<Unit filename="..\Src\Bluetooth\BT_RN4678.h" />
+		<Unit filename="..\Src\config.h" />
+		<Unit filename="..\Src\Control.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor.h" />
-		<Unit filename="Src\Sensor\SensorAnalog.cpp">
+		<Unit filename="..\Src\Control.h" />
+		<Unit filename="..\Src\lib.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorAnalog.h" />
-		<Unit filename="Src\Sensor\SensorDebug.cpp">
+		<Unit filename="..\Src\lib.h" />
+		<Unit filename="..\Src\main.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorDebug.h" />
-		<Unit filename="Src\Sensor\SensorI2C.cpp">
+		<Unit filename="..\Src\Monitor.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorI2C.h" />
-		<Unit filename="Src\Sensor\SensorI2C\SensorI2C_NXTultraschall.cpp">
+		<Unit filename="..\Src\Monitor.h" />
+		<Unit filename="..\Src\Motor.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorI2C\SensorI2C_NXTultraschall.h" />
-		<Unit filename="Src\Sensor\SensorI2C_Strategy.h" />
-		<Unit filename="Src\Sensor\SensorI2C\SensorI2C_TCS3472.cpp">
+		<Unit filename="..\Src\Motor.h" />
+		<Unit filename="..\Src\MotorTask.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorI2C\SensorI2C_TCS3472.h" />
-		<Unit filename="Src\Sensor\SensorI2C\SensorI2C_VL53L0X.cpp">
+		<Unit filename="..\Src\MotorTask.h" />
+		<Unit filename="..\Src\MovingAverage.h" />
+		<Unit filename="..\Src\Remote.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorI2C\SensorI2C_VL53L0X.h" />
-		<Unit filename="Src\SensorTask.cpp">
+		<Unit filename="..\Src\Remote.h" />
+		<Unit filename="..\Src\Sensor.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\SensorTask.h" />
-		<Unit filename="Src\Sensor\SensorTOF.cpp">
+		<Unit filename="..\Src\Sensor.h" />
+		<Unit filename="..\Src\Sensor\SensorAnalog.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorTOF.h" />
-		<Unit filename="Src\Sensor\SensorTouch.cpp">
+		<Unit filename="..\Src\Sensor\SensorAnalog.h" />
+		<Unit filename="..\Src\Sensor\SensorDebug.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorTouch.h" />
-		<Unit filename="Src\Sensor\SensorUART.cpp">
+		<Unit filename="..\Src\Sensor\SensorDebug.h" />
+		<Unit filename="..\Src\Sensor\SensorI2C.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorUART.h" />
-		<Unit filename="Src\ServoTask.cpp">
+		<Unit filename="..\Src\Sensor\SensorI2C.h" />
+		<Unit filename="..\Src\Sensor\SensorI2C\SensorI2C_NXTultraschall.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\ServoTask.h" />
-		<Unit filename="Src\Settings.cpp">
+		<Unit filename="..\Src\Sensor\SensorI2C\SensorI2C_NXTultraschall.h" />
+		<Unit filename="..\Src\Sensor\SensorI2C_Strategy.h" />
+		<Unit filename="..\Src\Sensor\SensorTOF.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Settings.h" />
-		<Unit filename="startup.S">
+		<Unit filename="..\Src\Sensor\SensorTOF.h" />
+		<Unit filename="..\Src\Sensor\SensorTouch.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\UART_Ext.h" />
-		<Unit filename="Src\UserInterface.cpp">
+		<Unit filename="..\Src\Sensor\SensorTouch.h" />
+		<Unit filename="..\Src\Sensor\SensorUART.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\UserInterface.h" />
-		<Unit filename="Src\Sensor\SensorI2C\VL53L0X.cpp">
+		<Unit filename="..\Src\Sensor\SensorUART.h" />
+		<Unit filename="..\Src\SensorTask.cpp">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="Src\Sensor\SensorI2C\VL53L0X.h" />
+		<Unit filename="..\Src\SensorTask.h" />
+		<Unit filename="..\Src\ServoTask.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Src\ServoTask.h" />
+		<Unit filename="..\Src\Settings.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Src\Settings.h" />
+		<Unit filename="..\Src\UART_Ext.h" />
+		<Unit filename="..\Src\UserInterface.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Src\UserInterface.h" />
+		<Unit filename="..\Src\startup.S">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<debugger>
-				<target_debugging_settings target="Board-00.22">
-					<debug_interface description="STM32F407.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="1000" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="true" ip_address="localhost" ip_port="2331" path="c:\Bin\SEGGER\JLink" executable="JLinkGDBServer.exe" start_server="true" arguments="" flash_verify="true" flash_run="true" />
-				</target_debugging_settings>
 				<target_debugging_settings target="Board-00.30">
 					<debug_interface description="STM32F407.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="1000" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="true" ip_address="localhost" ip_port="2331" path="c:\Bin\SEGGER\JLink" executable="JLinkGDBServer.exe" start_server="true" arguments="-select USB -device STM32F407VE  -if SWD -speed 1000 -noir" flash_verify="true" flash_run="true" />
+				</target_debugging_settings>
+				<target_debugging_settings target="Board-00.22">
+					<debug_interface description="STM32F407.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="1000" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="true" ip_address="localhost" ip_port="2331" path="c:\Bin\SEGGER\JLink" executable="JLinkGDBServer.exe" start_server="true" arguments="" flash_verify="true" flash_run="true" />
 				</target_debugging_settings>
 				<target_debugging_settings target="Board-01.00">
 					<debug_interface description="STM32F407.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="1000" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="true" ip_address="localhost" ip_port="2331" path="c:\Bin\SEGGER\JLink" executable="JLinkGDBServer.exe" start_server="true" arguments="-select USB -device STM32F407VE  -if SWD -speed 1000 -noir" flash_verify="true" flash_run="true" />

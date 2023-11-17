@@ -7,7 +7,7 @@
 */
 
 //*******************************************************************
-#include "BT_RN41.h"
+#include "BT_RN4678.h"
 
 //*******************************************************************
 System sys;
@@ -84,31 +84,52 @@ PinConfig::MAP PinConfig::table[] =
   END_OF_TABLE
 };
 
+///**********************************************************
+///
+///  The NXT-Ultrasonic sensor does not work after power up.
+///  The reason is unknown, but a delay after startup and
+///  before global object instantiation is a good workaround
+///
+///**********************************************************
+class TimeDelay4NxtUltrasonic
+{
+public:
+    TimeDelay4NxtUltrasonic()
+    {
+         System::delayMilliSec(20);
+    }
+} dummyTimeDelay4NxtUltrasonic;
+
 // UART
 //-----
-cHwUART_Ext       btx  ( Uart_Mcu::USART_3, 115200, //460800
-                                          Uart_Mcu::CTS
-                                         |Uart_Mcu::RTS, 255, 255 );  // Bluetooth module on board
+cHwUART_Ext      btx  ( Uart_Mcu::USART_3, 115200 //307200
+                                         ,Uart_Mcu::CTS
+                                         |Uart_Mcu::RTS, 1024, 1024 );  // Bluetooth module on board
 
 cHwUART_Ext      uart1 ( Uart_Mcu::USART_2, 2400, 0,100, 100 );
 cHwUART_Ext      uart2 ( Uart_Mcu::UART_5, 2400, 0,100, 100 );
-cHwUART_Ext      uart3 ( Uart_Mcu::UART_4,  2400, 0,100, 100 );
+cHwUART_Ext      uart3 ( Uart_Mcu::UART_4,  2400,0, 100, 100 );
 cHwUART_Ext      uart4 ( Uart_Mcu::USART_1, 2400, 0,100, 100 );
 
 // Ports
 //------
-Port_Mcu        portA ( Port_Mcu::PA );
+Port_Mcu         portA ( Port_Mcu::PA );
 Port_Mcu        portB ( Port_Mcu::PB );
 Port_Mcu        portC ( Port_Mcu::PC );
 Port_Mcu        portD ( Port_Mcu::PD );
 Port_Mcu        portE ( Port_Mcu::PE );
+
+// UART Bluetooth
+Port_Mcu::Pin     BT_Wakeup( portD, 3 );
+Port_Mcu::Pin     BT_RST_N ( portD, 4 );
+Port_Mcu::Pin     BT_Status( portC, 5 );
 
 // Timer
 //------
 Timer_Mcu       tim1  ( Timer_Mcu::TIM_1,   100 );
 Timer_Mcu       tim8  ( Timer_Mcu::TIM_8,    50 );
 Timer_Mcu       tim10 ( Timer_Mcu::TIM_10,   30000 );
-//Timer_Mcu       tim11 ( Timer_Mcu::TIM_11,   50 );
+//cHwTimer_N       tim11 ( cHwTimer_N::TIM_11,   50 );
 Timer_Mcu       tim9  ( Timer_Mcu::TIM_9,   16000 );
 Timer_Mcu       timer ( Timer_Mcu::TIM_2,  1000 );
 
@@ -131,20 +152,20 @@ cDevAnalogOutPWM    pwm_D( tim8, Timer::NORMAL, 3, 1000.0, 0.0 );
 
 // Modellbau-Servo-PWM
 //--------------------
-cDevAnalogOutPWM    pwm_ModellServo1( tim9, Timer::NORMAL, 1, 16.0, 0.0 );
-cDevAnalogOutPWM    pwm_ModellServo2( tim9, Timer::NORMAL, 0, 16.0, 0.0 );
+cDevAnalogOutPWM    pwm_ModellServo1( tim9, Timer::NORMAL, 0, 16.0, 0.0 );
+cDevAnalogOutPWM    pwm_ModellServo2( tim9, Timer::NORMAL, 1, 16.0, 0.0 );
 
 
 // Motor-CW/CCW
 //-------------
 Digital         cw_A ( portE, 15, Digital::Out, 0 );
 Digital         ccw_A( portE, 14, Digital::Out, 0 );
-Digital         cw_B ( portB, 10, Digital::Out, 0 );
-Digital         ccw_B( portB, 11, Digital::Out, 0 );
+Digital         cw_B ( portB, 11, Digital::Out, 0 );
+Digital         ccw_B( portB, 10, Digital::Out, 0 );
 Digital         cw_C ( portE,  7, Digital::Out, 0 );
 Digital         ccw_C( portE,  8, Digital::Out, 0 );
-Digital         cw_D ( portD, 13, Digital::Out, 0 );
-Digital         ccw_D( portD, 14, Digital::Out, 0 );
+Digital         cw_D ( portD, 14, Digital::Out, 0 );
+Digital         ccw_D( portD, 13, Digital::Out, 0 );
 
 // Motor-Encoder
 //--------------
@@ -213,10 +234,13 @@ cDevAnalogInADC     adc23( adc, 9, 3.3f, 0.0f );   // S4.2
 
 // User
 //-----
-Digital      btnUsr1(portE, 12, Digital::InPU,  1 );
-Digital      btnUsr2(portE, 13, Digital::InPU,  1 );
-Digital      ledUsr1(portE,  2, Digital::OutOD, 1 );
-Digital      ledUsr2(portE,  3, Digital::OutOD, 1 );
+Digital      btnUsr1(portC, 14, Digital::InPU,  1 );
+Digital      btnUsr2(portC, 15, Digital::InPU,  1 );
+Digital      ledUsr1(portE,  3, Digital::OutOD, 1 );
+Digital      ledUsr2(portE,  2, Digital::OutOD, 1 );
+
+DigitalButton btn   ( btnUsr1, taskManager, 100, 500 );
+DigitalButton btnAlt( btnUsr2, taskManager, 100, 500 );
 
 // Power-LED
 Digital          ledPwr (portE,  4, Digital::OutOD, 1 );
@@ -232,20 +256,14 @@ DigitalIndicator pwrIndicator(ledPwr, taskManager );
 Memory_Flash  mem0( 5 );
 Memory_Flash  mem1( 6 );
 Memory_Flash  mem2( 7 );
-//Memory_Flash  mem0( 8 );
-//Memory_Flash  mem1( 9 );
-
-//Memory_Flash  mem2( 10 );
-//Memory_Flash  mem3_1( 11 );
+//Memory_Flash  mem3_1( cHwMemory_Flash::SECTOR_7 );
 //Memory_RAM    mem3_2;
 
 USBdeviceDescriptor_0     desc;
 USBdevice_Mcu usb( desc );
 
-BT_RN41   btmodul(btx);
+BT_RN4678 btmodul(btx,BT_RST_N,BT_Wakeup,BT_Status);
 Bluetooth &btm = btmodul;
 Uart &bt = btmodul.uart;
-
-
 
 //EOF

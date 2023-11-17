@@ -1,41 +1,53 @@
 //*******************************************************************
 /*!
-\file   SensorI2C_TCS3472.h
+\file   UserInterface.h
 \author Thomas Breuer (Bonn-Rhein-Sieg University of Applied Sciences)
 \date   03.02.2021
 */
 
 //*******************************************************************
-#ifndef _SENSOR_I2C_TCS3472_H
-#define _SENSOR_I2C_TCS3472_H
+#ifndef _USER_INTERFACE_H
+#define _USER_INTERFACE_H
 
 //*******************************************************************
-#include "SensorI2C_Strategy.h"
+#include "lib.h"
+#include "Settings.h"
+#include "AppTask.h"
 
 //*******************************************************************
 /*!
-\class SensorI2C_TCS3472
+\class UserInterface
 \brief
 */
-class SensorI2C_TCS3472 : public SensorI2C_Strategy
+class UserInterface
 {
   public:
     //---------------------------------------------------------------
-    SensorI2C_TCS3472( SensorI2C &sensorIn );
+    UserInterface( AppTask  &app,
+                   Settings &settings );
+
+    //---------------------------------------------------------------
+    void update();
+
+    //---------------------------------------------------------------
+    void startApp( BYTE param );
+
+    //---------------------------------------------------------------
+    void stopApp();
+
+    //---------------------------------------------------------------
+    bool isAppActive();
+
+    //---------------------------------------------------------------
+    void setMonitorEvent( BYTE event );
+
+    //-------------------------------------------------------------------
+    void setVcc( BYTE Vcc );
 
   private:
     //---------------------------------------------------------------
-    virtual void start( BYTE option );
-
-    //---------------------------------------------------------------
-    virtual void stop( void );
-
-    //---------------------------------------------------------------
-    virtual void update( void );
-
-  private:
-    //---------------------------------------------------------------
-    I2Cmaster::Device  us;
+    Settings &settings;
+    AppTask  &app;
 };
 
 #endif

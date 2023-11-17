@@ -27,9 +27,7 @@ SensorI2C::SensorI2C( Sensor::Context &context )
   i2c( scl, sda, 10 ),
   //  i2c2(context.digitalD,context.digitalC,cHwI2Cmaster::CR_400kHz),
 
-  NXTultraschall( *this ),
-  TCS3472       ( *this ),
-  VL53L0X       ( *this )
+  NXTultraschall( *this )
 
 {
   strategyPtr = NULL;
@@ -76,8 +74,6 @@ bool SensorI2C::configMode( BYTE mode, WORD optionIn )
   switch( mode )
   {
     case 0:  strategyPtr = &NXTultraschall;   break;
-    case 1:  strategyPtr = &TCS3472;          break;
-    case 2:  strategyPtr = &VL53L0X;          break;
     default: strategyPtr = NULL;              break;
   }
 

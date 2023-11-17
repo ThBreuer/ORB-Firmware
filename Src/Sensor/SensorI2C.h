@@ -10,8 +10,6 @@
 #define _SENSOR_I2C_H
 #include "Sensor.h"
 #include "SensorI2C/SensorI2C_NXTultraschall.h"
-#include "SensorI2C/SensorI2C_TCS3472.h"
-#include "SensorI2C/SensorI2C_VL53L0X.h"
 
 //*******************************************************************
 /*!
@@ -50,8 +48,6 @@ class SensorI2C : public Sensor
     //---------------------------------------------------------------
     SensorI2C_Strategy          *strategyPtr;
     SensorI2C_NXTultraschall     NXTultraschall;
-    SensorI2C_TCS3472            TCS3472;
-    SensorI2C_VL53L0X            VL53L0X;
 
 };
 
