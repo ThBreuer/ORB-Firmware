@@ -141,12 +141,19 @@ bool cDownload::Interface::store( cDownload::Image::Data &data,
 
   if( numOfBlocks > 0 && data.blockId < numOfBlocks) // data to be stored
   {
-    mem.unlock();
+// \todo handle flash lock
+//    if( data.blockId == 0 )
+//    {
+      mem.unlock();
+//    }
     for( BYTE j = 0; j < data.blockSize; j++ )
     {
       mem.write( data.blockSize*data.blockId + j, data.payload[j] );
     }
-    mem.lock();
+//    if(data.blockId == numOfBlocks-1 )
+//    {
+      mem.lock();
+//    }
     totalSize = data.blockSize*(data.blockId+1);
   }
 
