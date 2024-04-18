@@ -234,17 +234,20 @@ cDevAnalogInADC     adc23( adc, 9, 3.3f, 0.0f );   // S4.2
 
 // User
 //-----
-Digital      btnUsr1(portC, 14, Digital::InPU,  1 );
-Digital      btnUsr2(portC, 15, Digital::InPU,  1 );
-Digital      ledUsr1(portE,  3, Digital::OutOD, 1 );
-Digital      ledUsr2(portE,  2, Digital::OutOD, 1 );
+Digital      btnUsr1(portC, 15, Digital::InPU,  0 );
+Digital      btnUsr2(portC, 14, Digital::InPU,  1 );
+Digital      ledUsr1(portE,  2, Digital::OutOD, 1 );
+Digital      ledUsr2(portE,  3, Digital::OutOD, 1 );
 
 DigitalButton btn   ( btnUsr1, taskManager, 100, 500 );
 DigitalButton btnAlt( btnUsr2, taskManager, 100, 500 );
 
+DigitalIndicator indUsr1( ledUsr1, taskManager, 20 );
+DigitalIndicator indUsr2( ledUsr2, taskManager, 50 );
+
 // Power-LED
 Digital          ledPwr (portE,  4, Digital::OutOD, 1 );
-DigitalIndicator pwrIndicator(ledPwr, taskManager );
+DigitalIndicator pwrIndicator(ledPwr, taskManager, 100 );
 
 
 // Task-Timer

@@ -10,8 +10,8 @@
 #include "UserInterface.h"
 
 //*******************************************************************
-extern Digital      ledUsr1;
-extern Digital      ledUsr2;
+extern DigitalIndicator      indUsr1;
+extern DigitalIndicator      indUsr2;
 //extern Digital      btnUsr1;
 //extern Digital      btnUsr2;
 extern DigitalButton btn;
@@ -55,8 +55,8 @@ void UserInterface::update()
 
   if( !app.isRunning() )
   {
-     ledUsr1.clr();
-     ledUsr2.clr();
+     indUsr1.clr();
+     indUsr2.clr();
   }
 }
 
@@ -66,9 +66,9 @@ void UserInterface::startApp( BYTE param )
   if( !app.isRunning())
   {
     if( param )
-      ledUsr2.set();
+      indUsr2.set();
     else
-      ledUsr1.set();
+      indUsr1.set();
     app.Start(param);
   }
 }
@@ -95,8 +95,8 @@ void UserInterface::setMonitorEvent( BYTE event )
 //-------------------------------------------------------------------
 void UserInterface::setVcc( BYTE Vcc )
 {
-  if     ( Vcc > settings.getVccLevelOK()  )  pwrIndicator.blink(1000, 90); //, 30);
-  else if( Vcc > settings.getVccLevelLow() )  pwrIndicator.blink(1000, 50); //, 50);
-  else                                        pwrIndicator.blink( 200, 50); //,100);
+  if     ( Vcc > settings.getVccLevelOK()  )  { pwrIndicator.setBrightness( 20); pwrIndicator.blink(1000, 90); }
+  else if( Vcc > settings.getVccLevelLow() )  { pwrIndicator.setBrightness( 50); pwrIndicator.blink(1000, 50); }
+  else                                        { pwrIndicator.setBrightness(100); pwrIndicator.blink( 200, 50); }
 }
 //EOF

@@ -242,6 +242,10 @@ Digital      ledUsr2(portE,  2, Digital::OutOD, 1 );
 DigitalButton btn   ( btnUsr1, taskManager, 100, 500 );
 DigitalButton btnAlt( btnUsr2, taskManager, 100, 500 );
 
+
+DigitalIndicator indUsr1( ledUsr1, taskManager, 100 );
+DigitalIndicator indUsr2( ledUsr2, taskManager, 100 );
+
 // Power-LED
 Digital          ledPwr (portE,  4, Digital::OutOD, 1 );
 DigitalIndicator pwrIndicator(ledPwr, taskManager );
