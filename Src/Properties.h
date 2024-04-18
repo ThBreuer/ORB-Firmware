@@ -452,8 +452,8 @@ class cSettingsToORB
         {
           command  = 0;
           strncpy(name,"---",20);
-          VCC_ok   = 78;
-          VCC_low  = 72;
+          VCC_ok   = 74;
+          VCC_low  = 70;
         }
 
     } data;
