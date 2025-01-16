@@ -4,6 +4,11 @@
 \author Thomas Breuer (Bonn-Rhein-Sieg University of Applied Sciences)
 \date   03.02.2021
 */
+#define PYTHON_TASK         (1)
+#define APP_TASK            (1)
+#define SENSOR_TASKS        (NUM_OF_SENSOR_PORTS)
+#define MAIN_TASK           (1)
+#define MICRO_SECONDS_PER_TASK_EXECUTION (200)
 
 //*******************************************************************
 #include "lib.h"
@@ -13,7 +18,8 @@
 #include "Module/Download.h"
 #include "config.h"
 
-#include "Properties.h"
+#include "Common/Properties.h"
+#include "PythonTask.h"
 #include "MotorTask.h"
 #include "ServoTask.h"
 #include "SensorTask.h"
@@ -23,7 +29,8 @@
 #include "Remote.h"
 
 //*******************************************************************
-Rtos rtos( NUM_OF_SENSOR_PORTS+1+1, 200/*us*/ );
+//Adding one task (PythonTask)
+Rtos rtos( SENSOR_TASKS + PYTHON_TASK + APP_TASK + MAIN_TASK, MICRO_SECONDS_PER_TASK_EXECUTION );
 
 Sensor::Context sContext[ NUM_OF_SENSOR_PORTS ]
   = { Sensor::Context( adc1, adc21, digitalA_1, digitalB_1, digitalC_1, digitalD_1, digitalH_1 ),
@@ -56,18 +63,20 @@ cISC_UART        ipcBT ( bt );
 cISC_USBdevice   ipcUSB( usb, 0/*interfId*/);
 
 //*******************************************************************
-AppTask        app      ( rtos                                     );
-UserInterface  ui       (              app,      settings          );
-Control        ctrl     ( taskManager, ui                          );
-Remote         remoteBT ( ipcBT,       ui, ctrl, settings, monitor );
-Remote         remoteUSB( ipcUSB,      ui, ctrl, settings, monitor );
+AppTask        app       ( rtos                                     );
+PythonTask     pythonTask( rtos                                     );
+UserInterface  ui        ( app, pythonTask,       settings          );
+Control        ctrl      ( taskManager, ui                          );
+Remote         remoteBT  ( ipcBT,       ui, ctrl, settings, monitor );
+Remote         remoteUSB ( ipcUSB,      ui, ctrl, settings, monitor );
 
 //*******************************************************************
+
 int main( void )
 {
- //cSystem::delayMilliSec(100);
- usb.start();
- System::delayMilliSec(100);
+  usb.start();
+  System::delayMilliSec(100);
+
   while(1)
   {
     ui.       update();

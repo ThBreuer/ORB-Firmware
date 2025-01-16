@@ -50,7 +50,7 @@ class SensorTask : public Rtos::Task
 
   private:
     //---------------------------------------------------------------
-    cSharedMem<ORB::Sensor>  reportBuffer;
+    SharedMem<ORB::Sensor>  reportBuffer;
 
     SensorAnalog  sensorAnalog;
     SensorUART    sensorUART;

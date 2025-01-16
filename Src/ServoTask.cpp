@@ -16,7 +16,7 @@
 //*******************************************************************
 //-------------------------------------------------------------------
 ServoTask::ServoTask( TaskManager  &taskHandler,
-                      cDevAnalogOutPWM   &pwmIn )
+                      AnalogOutPWM &pwmIn )
 
 : //TaskManager::Task( taskHandler ),
   pwm               ( pwmIn       ),
@@ -47,13 +47,13 @@ void ServoTask::set( BYTE speedIn, BYTE posIn )
 //-------------------------------------------------------------------
 void ServoTask::ServoTask::update( void )
 {
-  if( valid && timer.timeout() )
+  if( valid && timer.trigger() )
   {
     if( posDelta != 0 ) // Servo on
     {
       if( !running )    // Servo war aus und wird jetzt eingeschaltet
       {
-        pos = posSoll;  // Aktuelle Pos. unbekannt, daher Soll-Pos. übernehmen
+        pos = posSoll;  // Aktuelle Pos. unbekannt, daher Soll-Pos. uebernehmen
         pwm.set( pos );
         running = true;
       }

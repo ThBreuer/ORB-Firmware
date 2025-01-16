@@ -11,7 +11,7 @@
 
 //*******************************************************************
 #include "lib.h"
-#include "Properties.h"
+#include "Common/Properties.h"
 
 //*******************************************************************
 /*!
@@ -30,9 +30,15 @@ class Monitor
 
     void printf(BYTE line,const char *format, va_list va);
 
+    static void printConsole( const char *str );
+
   private:
     //---------------------------------------------------------------
     char text[4][31];
+
+    static Fifo<char> fifo;
+    BYTE   line = 0;
+    bool   isLastFifo = false;
 };
 
 #endif

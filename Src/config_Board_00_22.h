@@ -124,15 +124,15 @@ Digital         enable( portA, 3, Digital::Out, 1 );
 
 // Motor-PWM
 //----------
-cDevAnalogOutPWM    pwm_A( tim8, Timer::NORMAL, 1, 1000.0, 0.0 );
-cDevAnalogOutPWM    pwm_B( tim8, Timer::NORMAL, 0, 1000.0, 0.0 );
-cDevAnalogOutPWM    pwm_C( tim8, Timer::NORMAL, 2, 1000.0, 0.0 );
-cDevAnalogOutPWM    pwm_D( tim8, Timer::NORMAL, 3, 1000.0, 0.0 );
+AnalogOutPWM    pwm_A( tim8, Timer::NORMAL, 1, 1000.0, 0.0 );
+AnalogOutPWM    pwm_B( tim8, Timer::NORMAL, 0, 1000.0, 0.0 );
+AnalogOutPWM    pwm_C( tim8, Timer::NORMAL, 2, 1000.0, 0.0 );
+AnalogOutPWM    pwm_D( tim8, Timer::NORMAL, 3, 1000.0, 0.0 );
 
 // Modellbau-Servo-PWM
 //--------------------
-cDevAnalogOutPWM    pwm_ModellServo1( tim9, Timer::NORMAL, 1, 16.0, 0.0 );
-cDevAnalogOutPWM    pwm_ModellServo2( tim9, Timer::NORMAL, 0, 16.0, 0.0 );
+AnalogOutPWM    pwm_ModellServo1( tim9, Timer::NORMAL, 1, 16.0, 0.0 );
+AnalogOutPWM    pwm_ModellServo2( tim9, Timer::NORMAL, 0, 16.0, 0.0 );
 
 
 // Motor-CW/CCW
@@ -196,19 +196,19 @@ Digital         taster2(portE,0, Digital::InPU,  1);
 Digital         taster1(portE,1, Digital::InPU,  1);
 
 // Versorgungsspannung
-cDevAnalogInADC     Vcc ( adc, 14, (133.0f/33*33), 0.0f );   // Uref = 33/10 V; R1=100k, R2=33k
+AnalogInAdc     Vcc ( adc, 14, (133.0f/33*33), 0.0f );   // Uref = 33/10 V; R1=100k, R2=33k
 
 // Analog-Eingang
-cDevAnalogInADC     adc1( adc, 10, 3.3f, 0.0f );   // S1.1
-cDevAnalogInADC     adc2( adc, 11, 3.3f, 0.0f );   // S2.1
-cDevAnalogInADC     adc3( adc, 12, 3.3f, 0.0f );   // S3.1
-cDevAnalogInADC     adc4( adc, 13, 3.3f, 0.0f );   // S4.1
+AnalogInAdc     adc1( adc, 10, 3.3f, 0.0f );   // S1.1
+AnalogInAdc     adc2( adc, 11, 3.3f, 0.0f );   // S2.1
+AnalogInAdc     adc3( adc, 12, 3.3f, 0.0f );   // S3.1
+AnalogInAdc     adc4( adc, 13, 3.3f, 0.0f );   // S4.1
 
 // Analog-Eingang
-cDevAnalogInADC     adc21( adc, 4, 3.3f, 0.0f );   // S1.2
-cDevAnalogInADC     adc22( adc, 5, 3.3f, 0.0f );   // S2.2
-cDevAnalogInADC     adc24( adc, 8, 3.3f, 0.0f );   // S3.2
-cDevAnalogInADC     adc23( adc, 9, 3.3f, 0.0f );   // S4.2
+AnalogInAdc     adc21( adc, 4, 3.3f, 0.0f );   // S1.2
+AnalogInAdc     adc22( adc, 5, 3.3f, 0.0f );   // S2.2
+AnalogInAdc     adc24( adc, 8, 3.3f, 0.0f );   // S3.2
+AnalogInAdc     adc23( adc, 9, 3.3f, 0.0f );   // S4.2
 
 
 // User
@@ -235,9 +235,9 @@ DigitalIndicator pwrIndicator(ledPwr, taskManager );
 
 //
 //-----------
-Memory_Flash  mem0( 5 );
-Memory_Flash  mem1( 6 );
-Memory_Flash  mem2( 7 );
+Memory_Flash  mem0( 11 );
+Memory_Flash  mem1( 10 );
+Memory_Flash  mem2( 9 );
 //Memory_Flash  mem0( 8 );
 //Memory_Flash  mem1( 9 );
 

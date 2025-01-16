@@ -68,9 +68,9 @@ class Motor
 
   public:
     //---------------------------------------------------------------
-    cSharedMem<ORB::Motor >  reportBuffer;
-    cSharedMem<Setting    >  settingBuffer;
-    cSharedMem<Config     >  configBuffer;
+    SharedMem<ORB::Motor >  reportBuffer;
+    SharedMem<Setting    >  settingBuffer;
+    SharedMem<Config     >  configBuffer;
 
   private:
     //---------------------------------------------------------------

@@ -6,7 +6,7 @@ echo Generate USB descriptor file
 
 set out=..\Src\descriptor.cpp
 
-php -f "%EMBSYSLIB%\Src\Hardware\Common\USB\USBdevice\USB_Descriptor_Script.php" ..\Src\descriptor.txt USBdeviceDescriptor_0 > %out%
+php -f "..\Src\Common\EmbSysLib\Src\Hardware\Common\USB\USBdevice\USB_Descriptor_Script.php" ..\Src\descriptor.txt USBdeviceDescriptor_0 > %out%
 
 if /I "%ERRORLEVEL%" EQU "0" (
 	echo.

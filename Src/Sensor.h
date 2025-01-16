@@ -10,7 +10,7 @@
 #define _SENSOR_H
 
 //*******************************************************************
-#include "Properties.h"
+#include "Common/Properties.h"
 #include "ORB.h"
 
 //*******************************************************************
@@ -30,8 +30,8 @@ class Sensor
     {
       public:
         //-----------------------------------------------------------
-        Context( cDevAnalogIn &adc1In,
-                 cDevAnalogIn &adc2In,
+        Context( AnalogIn  &adc1In,
+                 AnalogIn  &adc2In,
                  Port::Pin &digitalA,
                  Port::Pin &digitalB,
                  Port::Pin &digitalC,
@@ -41,8 +41,8 @@ class Sensor
 
       public:
         //-----------------------------------------------------------
-        cDevAnalogIn  &adc1;
-        cDevAnalogIn  &adc2;
+        AnalogIn   &adc1;
+        AnalogIn   &adc2;
         Port::Pin  &digitalA;
         Port::Pin  &digitalB;
         Port::Pin  &digitalC;

@@ -21,8 +21,8 @@ class ServoTask: public TaskManager::Task
 {
   public:
     //---------------------------------------------------------------
-    ServoTask( TaskManager       &taskHandler,
-               cDevAnalogOutPWM   &pwmIn );
+    ServoTask( TaskManager    &taskHandler,
+               AnalogOutPWM   &pwmIn );
 
     //---------------------------------------------------------------
     // speedIn: Geschwindigkeit = 0=aus,...,100=max, unit:10steps/s
@@ -36,7 +36,7 @@ class ServoTask: public TaskManager::Task
 
   private:
     //---------------------------------------------------------------
-    cDevAnalogOutPWM    &pwm;
+    AnalogOutPWM         &pwm;
     TaskManager::TimeOut  timer;
 
     float         pos;

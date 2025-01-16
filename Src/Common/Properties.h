@@ -1,9 +1,10 @@
 //*******************************************************************
 /*!
 \file   Properties.h
-\author
-\date
-\brief
+\author Thomas Breuer (Bonn-Rhein-Sieg University of Applied Sciences)
+\date   02.01.2025
+
+License: See file "LICENSE"
 */
 
 //###################################################################
@@ -382,7 +383,7 @@ class cSettingsFromORB
     {
       public:
         //***********************************************************
-        WORD version[2];
+        WORD version[3];
         WORD board[2];
         char name[21];
         BYTE VCC_ok;
@@ -397,12 +398,14 @@ class cSettingsFromORB
           strncpy(name,"---",20);
           version[0] = VERSION_MAIN;
           version[1] = VERSION_SUB;
+          version[2] = VERSION_MINOR;
           board[0]   = BOARD_MAIN;
           board[1]   = BOARD_SUB;
           #else
           strncpy(name,"---",20);
           version[0] = 0;
           version[1] = 0;
+          version[2] = 0;
           board[0]   = 0;
           board[1]   = 0;
           #endif

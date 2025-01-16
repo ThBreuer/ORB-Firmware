@@ -14,7 +14,7 @@ extern MotorTask        sTask    [ NUM_OF_SENSOR_PORTS ];
 extern MotorTask        mTask    [ NUM_OF_MOTOR_PORTS ];
 extern ServoTask        servoTask[ NUM_OF_SERVO_PORTS ];
 extern Monitor          monitor;
-extern cDevAnalogInADC  Vcc;
+extern AnalogInAdc      Vcc;
 
 //*******************************************************************
 //
@@ -38,14 +38,14 @@ Control::Control( TaskManager  &taskHandler,
 void Control::update()
 {
   //---------------------------------------------------------------
-  if( VccTimer.timeout() )
+  if( VccTimer.trigger() )
   {
     VccFilter = 0.05f*(float)Vcc + 0.95f*VccFilter;
     ui.setVcc( VccFilter );
   }
 
   //-------------------------------------------------------------
-  if( outputTimer.timeout() )
+  if( outputTimer.trigger() )
   {
       //-------------------------------------------------------------
       if( !ui.isAppActive() )

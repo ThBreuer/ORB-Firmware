@@ -16,13 +16,13 @@
 //
 //*******************************************************************
 //-------------------------------------------------------------------
-Sensor::Context::Context( cDevAnalogIn &adc1_In,
-                              cDevAnalogIn &adc2_In,
-                              Port::Pin &digitalA_In,
-                              Port::Pin &digitalB_In,
-                              Port::Pin &digitalC_In,
-                              Port::Pin &digitalD_In,
-                              Port::Pin &digitalH_In )
+Sensor::Context::Context( AnalogIn  &adc1_In,
+                          AnalogIn  &adc2_In,
+                          Port::Pin &digitalA_In,
+                          Port::Pin &digitalB_In,
+                          Port::Pin &digitalC_In,
+                          Port::Pin &digitalD_In,
+                          Port::Pin &digitalH_In )
 
   : adc1(adc1_In),
     adc2(adc2_In),

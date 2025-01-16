@@ -57,7 +57,7 @@ void SensorI2C_NXTultraschall::update( void )
   BYTE commandState;
   BYTE value = 0;
 
-  Rtos::TimeOut timerLoc( 20 );
+  Rtos::Clock timerLoc( 20 );
 
   us.write( (BYTE)0x41 );
   commandState = us.read();

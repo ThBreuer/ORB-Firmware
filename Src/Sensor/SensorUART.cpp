@@ -300,7 +300,7 @@ BYTE SensorUART::nextSample()
 {
   BYTE in = 0;
 
-  Rtos::TimeOut uartTimeout( 500/*ms*/ );
+  Rtos::Clock uartTimeout( 500/*ms*/ );
 
   uartTimeout.start(); // autostart im konstruktor???
 
@@ -344,7 +344,7 @@ void SensorUART::sendByte( BYTE msg )
 //-------------------------------------------------------------------
 void SensorUART::setBaudrate( float rate )
 {
-  Rtos::TimeOut timerLoc( 10 );
+  Rtos::Clock timerLoc( 10 );
 
   while( !timerLoc.timeout() ) ;
 
