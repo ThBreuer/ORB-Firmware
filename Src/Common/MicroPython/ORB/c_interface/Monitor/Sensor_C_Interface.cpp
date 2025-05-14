@@ -46,9 +46,20 @@ void getSensor(uint8_t port, sensor_return_values* values){
   }
 }
 
-uint32_t getSensorValueExt(uint8_t id, uint8_t ch ) {
-    // ORB-Monitor does not support VlueExt
-    return 0;
+uint32_t getSensorValueExt(uint8_t port, uint8_t ch ) {
+  if( port < 4 )
+  {
+    Daten::PropFromORB::Data::Sensor &s = daten.mess.d.data.sensor[port];
+
+    switch( ch )
+    {
+      case 0:return( (s.value[0]       ) & 0xFFF );
+      case 1:return( (s.value[0] >> 12 ) & 0xFFF );
+      case 2:return( (s.value[0] >> 25 ) & 0x001 );
+      case 3:return( (s.value[0] >> 24 ) & 0x001 );
+    }
+  }
+  return 0;
 }
 
 uint8_t getSensorDigital (uint8_t id) {

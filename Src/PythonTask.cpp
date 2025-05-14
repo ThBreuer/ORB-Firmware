@@ -39,7 +39,7 @@ PythonTask::~PythonTask(){
 void PythonTask::update( ){
     exceptionReady = false;  // todo obsolete?
 
-    printConsole("\2Start\n");
+    printConsole("\2Start\n",0);
 
     vm.run(loadProgram, start_parameter);
     starting = false;
@@ -49,9 +49,9 @@ void PythonTask::update( ){
     //}
 
 //    printConsole("\1Exit: (%d)-",vm.getExitStatus());
-    printConsole("\2Exit: \3");
-    printConsole(vm.getExitInfo());
-    printConsole("\n");
+    printConsole("\2Exit: \3",0);
+    printConsole(vm.getExitInfo(),0);
+    printConsole("\n",0);
 
     stop();
 }
@@ -96,9 +96,9 @@ void PythonTask::writeException(){
 //        line += 1;
 //    }while(len == 31 && line < 3);
     clearException();
-    printConsole("\n*** ");
-    printConsole(vm.getExitInfo());
-    printConsole(" ***\n");
+    printConsole("\n*** ",0);
+    printConsole(vm.getExitInfo(),0);
+    printConsole(" ***\n",0);
 }
 
 void PythonTask::clearException(){

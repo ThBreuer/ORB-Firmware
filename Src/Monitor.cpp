@@ -63,13 +63,13 @@ void Monitor::printf(BYTE line,const char *format, va_list va)
 }
 
 //-------------------------------------------------------------------
-void Monitor::printConsole( const char *str )
+void Monitor::printConsole( const char *str, size_t len)
 {
     // todo funktion wird u.u. schneller aufgerufen, als fifo geleert werden kann.
     // Auf leere fifo warten geht auch nicht, da monitor ggf. nicht da.
     // Abhilfe: RTOS.pause???
     System::delayMilliSec(2);
-    while( *str )
+    while( len>0 && *str ) //*str )
     {
       while( !(fifo << *str) )
       {
@@ -77,6 +77,7 @@ void Monitor::printConsole( const char *str )
         fifo >> dummy;
       }
       str++;
+      len--;
     }
 }
 

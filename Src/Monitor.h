@@ -30,7 +30,7 @@ class Monitor
 
     void printf(BYTE line,const char *format, va_list va);
 
-    static void printConsole( const char *str );
+    static void printConsole( const char *str, size_t );
 
   private:
     //---------------------------------------------------------------

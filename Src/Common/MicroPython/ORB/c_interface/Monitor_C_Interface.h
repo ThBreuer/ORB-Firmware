@@ -52,7 +52,7 @@ uint8_t getMonitorKey();
 
 void setMonitorText(uint8_t line, const char *str, size_t len);
 
-void printConsole(const char *str);
+void printConsole(const char *str, size_t len );
 
 #ifdef __cplusplus
 }

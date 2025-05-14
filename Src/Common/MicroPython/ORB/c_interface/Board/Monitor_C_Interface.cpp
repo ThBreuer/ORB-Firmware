@@ -22,8 +22,11 @@ extern "C" {
 		print(line, "%.*s", len, str);
     }
 
-    void printConsole(const char *str){
-      Monitor::printConsole(str);
+    void printConsole(const char *str, size_t len){
+      if( len == 0 )
+        len = strlen(str);
+      if( len != 0 )
+        Monitor::printConsole(str, len);
     }
 
 }
