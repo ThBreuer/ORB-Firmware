@@ -12,6 +12,9 @@
 *.js   text eol=lf
 *.css   text eol=lf
 *.svg   text eol=lf
+*.c   text eol=crlf
+*.h   text eol=crlf
+*.cpp   text eol=crlf
 *.bat   text eol=crlf
 Doxyfile text eol=lf
 
