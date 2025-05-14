@@ -10,7 +10,4 @@ if /I "%ERRORLEVEL%" EQU "0" (
 	echo Error: ORB not set.
 )
 
-cd EmbSysLib
-call _setEnv.bat
-cd..
 @pause
