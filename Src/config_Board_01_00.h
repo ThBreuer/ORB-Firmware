@@ -103,8 +103,11 @@ public:
 // UART
 //-----
 cHwUART_Ext      btx  ( Uart_Mcu::USART_3, 115200 //307200
-                                         ,Uart_Mcu::CTS
-                                         |Uart_Mcu::RTS, 1024, 1024 );  // Bluetooth module on board
+                                         ,  Uart_Mcu::CTS
+                                           |Uart_Mcu::RTS
+                                         , 1024
+                                         , 1024 );  // Bluetooth module on board
+
 
 cHwUART_Ext      uart1 ( Uart_Mcu::USART_2, 2400, 0,100, 100 );
 cHwUART_Ext      uart2 ( Uart_Mcu::UART_5, 2400, 0,100, 100 );

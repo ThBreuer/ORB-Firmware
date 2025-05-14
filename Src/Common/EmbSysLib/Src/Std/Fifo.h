@@ -158,6 +158,7 @@ template <class T> class Fifo
     }
 
   private:
+  public:
     //---------------------------------------------------------------
     T    *speicher;
     WORD  in;

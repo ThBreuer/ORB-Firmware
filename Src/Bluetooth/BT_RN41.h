@@ -20,6 +20,19 @@ class BT_RN41 : public Bluetooth
     BT_RN41( cHwUART_Ext  &_uart )
     : Bluetooth(_uart)
     {
+
+//        // TODO: capture error event
+//      uart.setBaudrate(115200);
+//      send("$$$");   // enter command mode
+//      if( waitForAckn("CMD") == true )
+//      {
+//        send("SU,46\r");
+//      //  send("SU,11\r");
+//        waitForAckn("AOK");
+//        send("R,1\r");   // reboot
+//        //System::delayMilliSec(1000);
+//      }
+//      uart.setBaudrate(460800);
     }
 
     //---------------------------------------------------------------
@@ -54,21 +67,7 @@ class BT_RN41 : public Bluetooth
 
       // TODO: capture error event
       send("$$$");   // enter command mode
-      if( waitForAckn("CMD") == false )
-      {
-        uart.setBaudrate(115200);
-        send("$$$");   // enter command mode
-        waitForAckn("CMD");
-      //  send("SU,46\r");
-        send("SU,11\r");
-        waitForAckn("AOK");
-        send("R,1\r");   // reboot
-        //System::delayMilliSec(1000);
-        //uart.setBaudrate(460800);
-        //System::delayMilliSec(1000);
-        send("$$$");   // enter command mode
-        waitForAckn("CMD");
-      }
+	  waitForAckn("CMD");
       send(str);       // set name
       waitForAckn("AOK");
       send("R,1\r");   // reboot

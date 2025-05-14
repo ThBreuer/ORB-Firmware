@@ -29,19 +29,99 @@ class BT_RN4678 : public Bluetooth
       wakeup.setMode( Port::OutOD    );
       status.setMode( Port::In  );
 
+//     uart.setBaudrate(307200);
       System::delayMilliSec(1);
       rst.set(1);
       System::delayMilliSec(100);
 
-      ////uart.setBaudrate(115200);
-      //    send("$$$\r");
-      //    waitForAckn("CMD>");
-      //    send("SU,03\r");
-      //    waitForAckn("AOK");
-      //    send("GU\r");
-      //    waitForAckn("AOK");
-      //    send("R,1\r");
-      //    //uart.setBaudrate(115200);
+  //   uart.setBaudrate(115200);
+//
+//     send("$$$\r");
+//     waitForAckn("CMD>");
+//     waitForAckn("AOK");
+//     send("SG,2\r");
+//     waitForAckn("AOK");
+//     send("SQ,9100\r");
+//     waitForAckn("AOK");
+//     send("R,1\r");
+//
+//     uart.setBaudrate(307200);
+//     send("$$$\r");
+//     waitForAckn("CMD>");
+//     send("GQ\r");
+//     waitForAckn("9100");
+//     send("SF,1\r");
+//     waitForAckn("AOK");
+//     send("R,1\r");
+
+
+ //   uart.setBaudrate(307200);
+
+//    uart.setBaudrate(115200);
+//      send("$$$\r");
+//      waitForAckn("CMD>");
+//      send("GU\r");
+
+//uart.set((BYTE)0xFF);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0xFF);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0xFF);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0xFF);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0xFF);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0xFF);
+//System::delayMilliSec(100);
+//uart.set((BYTE)0);
+//System::delayMilliSec(100);
+
+
+
+ //     uart.setBaudrate(1000000);
+////          uart.setBaudrate(115200);
+//
+//      System::delayMilliSec(100);
+//
+//      send("$$$\r");
+//      waitForAckn("CMD>");
+//      send("SU,10\r");
+//      waitForAckn("AOK");
+//      send("R,1\r");
+//    //uart.setBaudrate(306000);
+//      uart.setBaudrate(307200);
+//      System::delayMilliSec(100);
+
+//      send("$$$\r");
+//      waitForAckn("CMD>");
+//      send("SQ,1000\r");
+//      waitForAckn("AOK");
+//      send("R,1\r");
+
+
+   //       uart.setBaudrate(115200);
+
+//          uart.setBaudrate(115200);
+//          send("$$$\r");
+//          waitForAckn("CMD>");
+//          send("SU,03\r");
+//          waitForAckn("AOK");
+//          send("GU\r");
+//          waitForAckn("AOK");
+//          send("R,1\r");
+//          uart.setBaudrate(115200);
+
     }
 
     //---------------------------------------------------------------
@@ -86,12 +166,12 @@ class BT_RN4678 : public Bluetooth
       waitForAckn("CMD>");
       send(str);       // set name
       waitForAckn("AOK");
-      send("SG,2\r");  // set BT classic only
-      waitForAckn("AOK");
-      send("S?,1\r");  // set Role Switch on
-      waitForAckn("AOK");
-      send("SQ,9100\r");  // set UART Flow control enable + passive scan
-      waitForAckn("AOK");
+//      send("SG,2\r");  // set BT classic only
+//      waitForAckn("AOK");
+//      send("S?,1\r");  // set Role Switch on
+//      waitForAckn("AOK");
+//      send("SQ,9100\r");  // set UART Flow control enable + passive scan
+//      waitForAckn("AOK");
       send("R,1\r");   // reboot
     }
 

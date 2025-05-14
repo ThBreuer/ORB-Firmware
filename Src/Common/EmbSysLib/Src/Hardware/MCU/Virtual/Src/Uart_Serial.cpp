@@ -60,7 +60,7 @@ void Uart_Serial::open( const char *portName )
                         0,
                         NULL,
                         OPEN_EXISTING,
-                        FILE_FLAG_NO_BUFFERING | FILE_FLAG_WRITE_THROUGH, //dwFlagsAndAttributes
+                        0, //FILE_FLAG_NO_BUFFERING | FILE_FLAG_WRITE_THROUGH, //dwFlagsAndAttributes
                         NULL);
   if (hSerial == INVALID_HANDLE_VALUE)
   {
@@ -168,7 +168,7 @@ void Uart_Serial::transmitByte( BYTE c )
     return;
   }
 
-  if( !WriteFile( hSerial, &c, 1, &dwBytesWritten, NULL ) )
+  if( !WriteFile( hSerial, &c, 1, &dwBytesWritten, NULL ) || dwBytesWritten != 1 )
   {
     close();
     report.alert( GetLastError() );

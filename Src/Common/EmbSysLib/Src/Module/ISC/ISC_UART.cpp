@@ -149,14 +149,14 @@ void cISC_UART::update( void )
         crc.reset();
         crc( (BYTE*)&rec.id, idx-2 );
         if( rec.crcValue == crc.get() )
-      {
-        memcpy( ptr->dataRef, rec.data, ptr->dataLength );
-        ptr->update(); // we found a matching data object
-      }
-      else
-      {
+        {
+          memcpy( ptr->dataRef, rec.data, ptr->dataLength );
+          ptr->update(); // we found a matching data object
+        }
+	else
+	{
           errorCnt++;
-      }
+        }
       }
       else
       {

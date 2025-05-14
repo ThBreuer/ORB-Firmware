@@ -50,11 +50,12 @@ class Uart_Mcu : public Uart
     */
     typedef enum
     {
-      NONE = 0,
-      RTS  = 0x08,
-      CTS  = 0x04,
-      EVEN = 0x02,
-      ODD  = 0x01
+      NONE     = 0x00,
+      EVEN     = 0x01,
+      ODD      = 0x02,
+      CTS      = 0x04,
+      RTS      = 0x08,
+      STOPBIT2 = 0x10
     } MODE;
 
   public:
@@ -79,6 +80,10 @@ class Uart_Mcu : public Uart
     // in extern "C"
     void isr( void );
 
+
+    // overload Uart::get()
+    virtual bool get( BYTE &data );
+
   private:
     //---------------------------------------------------------------
     virtual BYTE getByte( void );
@@ -102,7 +107,9 @@ class Uart_Mcu : public Uart
 
   private:
     //---------------------------------------------------------------
-    USART_TypeDef *ptr;
+    USART_TypeDef      *ptr;
+    DMA_Stream_TypeDef *dmaStream;
+    DWORD               dmaChannel;
 
 }; //class Uart_Mcu
 
