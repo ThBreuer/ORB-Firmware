@@ -11,6 +11,7 @@
 //*******************************************************************
 #include "AppTask.h"
 /// todo #include "mpconfigport.h"
+#include "Control.h"
 
 //*******************************************************************
 extern SensorTask   sTask[ NUM_OF_SENSOR_PORTS ];
@@ -19,6 +20,7 @@ extern ServoTask    servoTask[ NUM_OF_SERVO_PORTS ];
 extern Digital  taster1;
 extern Digital  taster2;
 extern Monitor      monitor;
+extern Control      ctrl;
 
 //*******************************************************************
 //
@@ -61,6 +63,7 @@ void AppTask::update( )
   orb.funcPtr_clearMemory       = clearMemory;
   orb.funcPtr_setMemory         = setMemory;
   orb.funcPtr_getMemory         = getMemory;
+  orb.funcPtr_getVcc            = getVcc;
 
   orb.ptr  = this;
 
@@ -120,6 +123,20 @@ void AppTask::Start( BYTE para )
 {
   Parameter = para;
   start();
+}
+
+//-------------------------------------------------------------------
+void AppTask::StopActor( void )
+{
+  for( int id = 0; id < NUM_OF_MOTOR_PORTS; id++ )
+  {
+    mTask[id].set( 0, 0, 0 );
+  }
+
+  for( int id = 0; id < NUM_OF_SERVO_PORTS; id++ )
+  {
+    servoTask[id].set( 0, 0 );
+  }
 }
 
 
@@ -253,6 +270,12 @@ void AppTask::getMemory(void *ptr, DWORD addr, BYTE *data, DWORD size )
 {
   for( DWORD i=0;i<size;i++)
     data[i] = mem1.read(addr++);
+}
+
+//-------------------------------------------------------------------
+float AppTask::getVcc(void *ptr )
+{
+  return( ctrl.getVcc() );
 }
 //---------------------------------------------------------------
 //---------------------------------------------------------------

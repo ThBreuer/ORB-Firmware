@@ -20,6 +20,7 @@
 
 #include "Monitor.h"
 
+
 //*******************************************************************
 extern Memory_Flash  mem1;
 //extern Memory_Flash  mem3_1;
@@ -57,6 +58,9 @@ class AppTask : public Rtos::Task
 
     //---------------------------------------------------------------
     void Start( BYTE para );
+
+    //---------------------------------------------------------------
+    void StopActor( void );
 
   public:
     //---------------------------------------------------------------
@@ -103,6 +107,9 @@ class AppTask : public Rtos::Task
 
     //---------------------------------------------------------------
     static void getMemory(void *ptr, DWORD addr, BYTE *data, DWORD size );
+
+    //---------------------------------------------------------------
+    static float getVcc(void *ptr );
 
 };
 #endif
