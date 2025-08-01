@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_project_file>
-	<EmBitzVersion release="2.60" revision="0" />
+	<EmBitzVersion release="2.50" revision="0" />
 	<FileVersion major="2" minor="0" />
 	<Project>
 		<Option title="main" />
@@ -827,6 +827,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="..\Src\Sensor\SensorI2C\SensorI2C_NXTultraschall.h" />
+		<Unit filename="..\Src\Sensor\SensorI2C\SensorI2C_TCS3472color.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\Src\Sensor\SensorI2C\SensorI2C_TCS3472color.h" />
 		<Unit filename="..\Src\Sensor\SensorI2C_Strategy.h" />
 		<Unit filename="..\Src\Sensor\SensorTOF.cpp">
 			<Option compilerVar="CC" />
