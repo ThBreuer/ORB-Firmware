@@ -230,8 +230,8 @@ AnalogInAdc     adc4( adc, 13, 3.3f, 0.0f );   // S4.1
 // Analog-Eingang
 AnalogInAdc     adc21( adc, 4, 3.3f, 0.0f );   // S1.2
 AnalogInAdc     adc22( adc, 5, 3.3f, 0.0f );   // S2.2
-AnalogInAdc     adc24( adc, 8, 3.3f, 0.0f );   // S3.2
-AnalogInAdc     adc23( adc, 9, 3.3f, 0.0f );   // S4.2
+AnalogInAdc     adc23( adc, 8, 3.3f, 0.0f );   // S3.2
+AnalogInAdc     adc24( adc, 9, 3.3f, 0.0f );   // S4.2
 
 
 // User
