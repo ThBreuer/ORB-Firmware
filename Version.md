@@ -6,7 +6,13 @@
 
 #### New features
 
+- MicroPython Integration
 - TCS34xx color sensor support
+
+#### Minor changes
+
+- EmbSysLib reorganized
+- UART with DMA
 
 #### Bug fixes
 
