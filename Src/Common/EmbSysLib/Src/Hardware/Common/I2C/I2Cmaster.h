@@ -70,6 +70,16 @@ class I2Cmaster
         }
 
         //---------------------------------------------------------------
+        /*! Set HW-Address
+            \param hwAddr Device's hardware address
+        */
+        void setHwAddr( BYTE hwAddr )
+        {
+          this->hwAddr = hwAddr;          
+          isErrorFlag  = false;
+        }
+
+        //---------------------------------------------------------------
         /*! Read a byte from the device
             \return Received data byte
         */
