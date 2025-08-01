@@ -70,7 +70,7 @@ void UserInterface::startApp( BYTE param )
   if( !isAppActive() )
   {
     pythonTask.clearException();
-  
+
     BYTE languageSelectFlag = mem0.read(0);
 
     switch( languageSelectFlag )
@@ -106,13 +106,16 @@ void UserInterface::stopApp( void )
   {
     app.stop();
   }
+  app.StopActor();
+  indUsr1.clr();
+  indUsr2.clr();
 }
 
 //-------------------------------------------------------------------
 bool UserInterface::isAppActive( void )
 {
-  return(    app.isRunning() 
-          || pythonTask.isRunning() 
+  return(    app.isRunning()
+          || pythonTask.isRunning()
           || pythonTask.isStarting() );
 }
 
