@@ -41,6 +41,7 @@ class cORBlocal : public ORB
     void        (*funcPtr_clearMemory       )(void *                                    );
     void        (*funcPtr_setMemory         )(void *, DWORD addr, BYTE *data, DWORD size);
     void        (*funcPtr_getMemory         )(void *, DWORD addr, BYTE *data, DWORD size);
+    float       (*funcPtr_getVcc            )(void *                                    );
 
 public:
     //-------------------------------------------------------
@@ -59,9 +60,7 @@ public:
     virtual void        clearMemory      (                                     ) {return(funcPtr_clearMemory      (ptr             ));}
     virtual void        setMemory        (DWORD addr, BYTE *data, DWORD s      ) {return(funcPtr_setMemory        (ptr,addr,data,s ));}
     virtual void        getMemory        (DWORD addr, BYTE *data, DWORD s      ) {return(funcPtr_getMemory        (ptr,addr,data,s ));}
-
-    // TODO: implement getVcc()
-    virtual float getVcc( void ) {return(0);}
+    virtual float       getVcc           (                                     ) {return(funcPtr_getVcc           (ptr             ));}
 
     void *ptr;
 
