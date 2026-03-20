@@ -11,7 +11,7 @@
 *.elay     text eol=lf
 *.doxyfile text eol=crlf
 *.h        text eol=crlf
-*.html     text eol=crlf
+*.html     text eol=lf
 *.js       text eol=lf
 *.ld       text eol=crlf
 *.ini      text eol=crlf
