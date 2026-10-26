@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_project_file>
-	<EmBitzVersion release="2.50" revision="0" />
+	<EmBitzVersion release="2.60" revision="0" />
 	<FileVersion major="2" minor="0" />
 	<Project>
 		<Option title="main" />
@@ -8,7 +8,7 @@
 		<Option compiler="armgcc_eb" />
 		<Build>
 			<Target title="Board-00.22">
-				<Option output=".\..\Bin\orb-hw${HW_MAIN}${HW_SUB}.elf" />
+				<Option output=".\..\Bin\orb-hw${HW_MAIN}${HW_SUB}-fw${SW_MAIN}${SW_SUB}${SW_MINOR}.elf" />
 				<Option object_output=".\..\.Build\${HW_MAIN}${HW_SUB}" />
 				<Option type="0" />
 				<Option create_hex="1" />
@@ -57,18 +57,13 @@
 					<Add option="-Wl,--gc-sections" />
 					<Add option="-lm" />
 				</Linker>
-				<ExtraCommands>
-					<Add after=".\..\Tools\Hex2Dfu\hex2dfu.exe -i .\..\Bin\orb-hw${HW_MAIN}${HW_SUB}.hex -o .\..\Bin\orb-hw${HW_MAIN}${HW_SUB}-fw${SW_MAIN}${SW_SUB}${SW_MINOR}.dfu" />
-					<Mode before="0" />
-					<Mode after="1" />
-				</ExtraCommands>
 				<Environment>
 					<Variable name="HW_MAIN" value="00" />
 					<Variable name="HW_SUB" value="22" />
 				</Environment>
 			</Target>
 			<Target title="Board-00.30">
-				<Option output=".\..\Bin\orb-hw${HW_MAIN}${HW_SUB}.elf" />
+				<Option output=".\..\Bin\orb-hw${HW_MAIN}${HW_SUB}-fw${SW_MAIN}${SW_SUB}${SW_MINOR}.elf" />
 				<Option object_output=".\..\.Build\${HW_MAIN}${HW_SUB}" />
 				<Option type="0" />
 				<Option create_hex="1" />
@@ -117,18 +112,13 @@
 					<Add option="-Wl,--gc-sections" />
 					<Add option="-lm" />
 				</Linker>
-				<ExtraCommands>
-					<Add after=".\..\Tools\Hex2Dfu\hex2dfu.exe -i .\..\Bin\orb-hw${HW_MAIN}${HW_SUB}.hex -o .\..\Bin\orb-hw${HW_MAIN}${HW_SUB}-fw${SW_MAIN}${SW_SUB}${SW_MINOR}.dfu" />
-					<Mode before="0" />
-					<Mode after="1" />
-				</ExtraCommands>
 				<Environment>
 					<Variable name="HW_MAIN" value="00" />
 					<Variable name="HW_SUB" value="30" />
 				</Environment>
 			</Target>
 			<Target title="Board-01.00">
-				<Option output=".\..\Bin\orb-hw${HW_MAIN}${HW_SUB}.elf" />
+				<Option output=".\..\Bin\orb-hw${HW_MAIN}${HW_SUB}-fw${SW_MAIN}${SW_SUB}${SW_MINOR}.elf" />
 				<Option object_output=".\..\.Build\${HW_MAIN}${HW_SUB}" />
 				<Option type="0" />
 				<Option create_hex="1" />
@@ -177,11 +167,6 @@
 					<Add option="-Wl,--gc-sections" />
 					<Add option="-lm" />
 				</Linker>
-				<ExtraCommands>
-					<Add after=".\..\Tools\Hex2Dfu\hex2dfu.exe -i .\..\Bin\orb-hw${HW_MAIN}${HW_SUB}.hex -o .\..\Bin\orb-hw${HW_MAIN}${HW_SUB}-fw${SW_MAIN}${SW_SUB}${SW_MINOR}.dfu" />
-					<Mode before="0" />
-					<Mode after="1" />
-				</ExtraCommands>
 				<Environment>
 					<Variable name="HW_MAIN" value="01" />
 					<Variable name="HW_SUB" value="00" />
@@ -189,7 +174,7 @@
 			</Target>
 			<Environment>
 				<Variable name="SW_MAIN" value="01" />
-				<Variable name="SW_MINOR" value="00" />
+				<Variable name="SW_MINOR" value="01" />
 				<Variable name="SW_SUB" value="01" />
 			</Environment>
 		</Build>
