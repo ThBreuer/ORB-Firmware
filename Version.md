@@ -2,6 +2,16 @@
 
 ## ORB-Firmware
 
+### Version 01.01.01
+
+#### Minor changes
+
+- New flash tool: STM32_Programmer_CLI
+
+#### Bug fix
+
+- ADC channel mismatch
+
 ### Version 01.01.00
 
 #### New features
